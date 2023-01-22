@@ -31,4 +31,13 @@ class M_pegawai extends CI_Model
         $this->db->where($where);
         $this->db->update($table, $data);
     }
+    function cek_info_gaji($kode_pegawai,$nama,$bulan){
+        $this->db->select('*');
+        $this->db->from('tbl_penggajian a');
+        $this->db->join('tbl_pegawai b', 'b.kode_pegawai = a.kode_pegawai');
+        $this->db->where('b.nama', $nama);
+        $this->db->where('b.kode_pegawai', $kode_pegawai);
+        $this->db->where('a.bulan', $bulan);
+        return $this->db->get('')->result();
+    }
 }

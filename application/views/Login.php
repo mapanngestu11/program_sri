@@ -16,6 +16,12 @@
 
 </head>
 
+<style>
+    .kembali {
+        text-align: center;
+    }
+</style>
+
 <body class="bg-gradient-login">
     <!-- Login Content -->
     <div class="container-login">
@@ -40,6 +46,9 @@
                                             <button type="submit" class="btn btn-primary btn-block">Login</button>
                                         </div>
                                         <hr>
+                                        <center>
+                                            <a href="<?php echo base_url('Dashboard_utama/') ?>" class="kembali">Kembali</a>
+                                        </center>
                                     </form>
                                     <div class="text-center">
                                     </div>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 16, 2022 at 02:48 AM
+-- Generation Time: Jan 22, 2023 at 03:01 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 5.6.40
 
@@ -39,7 +39,8 @@ CREATE TABLE `tbl_jabatan` (
 
 INSERT INTO `tbl_jabatan` (`id`, `jabatan`) VALUES
 (2, 'Operator '),
-(3, 'HRD');
+(3, 'HRD'),
+(4, 'Manager');
 
 -- --------------------------------------------------------
 
@@ -81,13 +82,15 @@ CREATE TABLE `tbl_penggajian` (
   `uang_transport` varchar(20) NOT NULL,
   `uang_makan` varchar(20) NOT NULL,
   `uang_rajin` varchar(20) NOT NULL,
-  `lembur` varchar(20) NOT NULL,
-  `bpjs_jht` varchar(20) NOT NULL,
-  `bpjs_jkm` varchar(20) NOT NULL,
+  `lembur` varchar(20) DEFAULT NULL,
+  `bpjs_jht` varchar(20) DEFAULT NULL,
+  `bpjs_jkk` varchar(20) DEFAULT NULL,
+  `bpjs_jkm` varchar(20) DEFAULT NULL,
   `cuti` varchar(20) NOT NULL,
   `potongan_bpjs_jht` varchar(20) NOT NULL,
   `potongan_bpjs_kantor` varchar(20) NOT NULL,
   `total_gaji` varchar(20) NOT NULL,
+  `bulan` int(11) NOT NULL,
   `tanggal` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -95,9 +98,11 @@ CREATE TABLE `tbl_penggajian` (
 -- Dumping data for table `tbl_penggajian`
 --
 
-INSERT INTO `tbl_penggajian` (`id`, `kode_pegawai`, `gaji_pokok`, `uang_transport`, `uang_makan`, `uang_rajin`, `lembur`, `bpjs_jht`, `bpjs_jkm`, `cuti`, `potongan_bpjs_jht`, `potongan_bpjs_kantor`, `total_gaji`, `tanggal`) VALUES
-(1, 123, '1500000', '240000', '48000', '720000', '500000', '226860', '11940', '0', '79600', '248352', '2928400', '2022-12-13 03:51:02'),
-(2, 123, '1500000', '240000', '480000', '720000', '500000', '226860', '11940', '0', '79600', '248352', '3360400', '2022-12-13 03:55:45');
+INSERT INTO `tbl_penggajian` (`id`, `kode_pegawai`, `gaji_pokok`, `uang_transport`, `uang_makan`, `uang_rajin`, `lembur`, `bpjs_jht`, `bpjs_jkk`, `bpjs_jkm`, `cuti`, `potongan_bpjs_jht`, `potongan_bpjs_kantor`, `total_gaji`, `bulan`, `tanggal`) VALUES
+(2, 123, '1500000', '240000', '480000', '720000', '500000', '226860', '0', '11940', '0', '79600', '248352', '3360400', 10, '2022-10-12 03:55:45'),
+(3, 1234, '123', '123', '13', '123', NULL, NULL, NULL, NULL, '123', '123', '123', '13', 0, '2023-12-19 02:57:09'),
+(4, 123, '1500000', '240000', '480000', '720000', '500000', '226860', '0', '11940', '0', '79600', '248352', '3360400', 11, '2022-11-12 03:55:45'),
+(5, 123, '1500000', '240000', '480000', '720000', '500000', '226860', '0', '11940', '0', '79600', '248352', '3360400', 10, '2022-10-12 03:55:45');
 
 -- --------------------------------------------------------
 
@@ -121,7 +126,10 @@ CREATE TABLE `tbl_user` (
 
 INSERT INTO `tbl_user` (`id`, `kode_pegawai`, `nama`, `username`, `password`, `hak_akses`, `tanggal`) VALUES
 (4, 2313, '31321', '21313', '54fda78aa8a09b4d77b5aaec57b75028', 'admin', '2022-12-11'),
-(6, 123, 'admin', 'admin', '21232f297a57a5a743894a0e4a801fc3', 'Admin', '2022-12-11');
+(6, 123, 'admin', 'admin', '21232f297a57a5a743894a0e4a801fc3', 'Admin', '2022-12-11'),
+(7, 123, '123', '123', '65ded5353c5ee48d0b7d48c591b8f430', 'Admin', '2022-12-18'),
+(8, 12345, 'admin', 'admin', 'eb456051f77bc4b4904b2ce73581852e', 'Admin', '2023-01-19'),
+(9, 1111, 'manager', 'manager', '1d0258c2440a8d19e716292b231e3190', 'Manager', '2023-01-20');
 
 --
 -- Indexes for dumped tables
@@ -159,7 +167,7 @@ ALTER TABLE `tbl_user`
 -- AUTO_INCREMENT for table `tbl_jabatan`
 --
 ALTER TABLE `tbl_jabatan`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tbl_pegawai`
@@ -171,13 +179,13 @@ ALTER TABLE `tbl_pegawai`
 -- AUTO_INCREMENT for table `tbl_penggajian`
 --
 ALTER TABLE `tbl_penggajian`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `tbl_user`
 --
 ALTER TABLE `tbl_user`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

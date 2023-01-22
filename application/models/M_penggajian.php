@@ -6,8 +6,39 @@ class M_penggajian extends CI_Model
 
     function tampil_data()
     {
-        return $this->db->get('tbl_penggajian');
+        $this->db->select('*');
+        $this->db->from('tbl_penggajian a');
+        $this->db->join('tbl_pegawai b', 'b.kode_pegawai = a.kode_pegawai');
+        return $this->db->get('');
     }
+
+    function cek_id($id)
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_penggajian a');
+        $this->db->join('tbl_pegawai b', 'b.kode_pegawai = a.kode_pegawai');
+        $this->db->where('a.id', $id);
+        return $this->db->get('');
+    }
+
+    function cek_kode_pegawai($kode_pegawai)
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_penggajian a');
+        $this->db->join('tbl_pegawai b', 'b.kode_pegawai = a.kode_pegawai');
+        $this->db->where('a.kode_pegawai', $kode_pegawai);
+        return $this->db->get('');
+    }
+    function tampil_bulan($bulan)
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_penggajian a');
+        $this->db->join('tbl_pegawai b', 'b.kode_pegawai = a.kode_pegawai');
+        $this->db->where('a.bulan', $bulan);
+        return $this->db->get('');
+    }
+
+
 
     function input_data($data, $table)
     {

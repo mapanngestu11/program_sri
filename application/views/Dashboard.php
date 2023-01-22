@@ -277,7 +277,7 @@
                                     <div class="customer-message align-items-center">
                                         <a class="font-weight-bold" href="#">
                                             <div class="text-truncate message-title">Hi there! I am wondering if you can help me with a
-                                                problem I've been having.</div>
+                                            problem I've been having.</div>
                                             <div class="small text-gray-500 message-time font-weight-bold">Udin Cilok · 58m</div>
                                         </a>
                                     </div>
