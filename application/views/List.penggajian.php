@@ -87,7 +87,7 @@
                                                 $tanggal = $row['tanggal'];
                                                 $originalDate1 = $tanggal;
                                                 $tgl = date("d-F-Y", strtotime($originalDate1));
-                                            ?>
+                                                ?>
                                                 <tr>
                                                     <td><?php echo $no; ?></td>
                                                     <td><?php echo $kode_pegawai; ?></td>
@@ -130,7 +130,7 @@
     <?php foreach ($penggajian->result_array() as $row) :
         $id = $row['id'];
         $nama = $row['nama'];
-    ?>
+        ?>
         <div class="modal fade" id="ModalHapus<?php echo $id; ?>" tabindex="-1" role="dialog" aria-labelledby="">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -198,50 +198,50 @@
             });
         </script>
 
-    <?php elseif ($this->session->flashData('msg') == 'success') : ?>
-        <script type="text/javascript">
-            Swal.fire({
-                type: 'success',
-                title: 'Sukses',
-                heading: 'Success',
-                text: "Data Berhasil Di Tambahkan.",
-                showHideTransition: 'slide',
-                icon: 'success',
-                hideAfter: false,
-                bgColor: '#7EC857'
-            });
-        </script>
-    <?php elseif ($this->session->flashData('msg') == 'info-update') : ?>
-        <script type="text/javascript">
-            Swal.fire({
-                type: 'success',
-                title: 'Sukses',
-                heading: 'Success',
-                text: "Data Berhasil Di Update.",
-                showHideTransition: 'slide',
-                icon: 'success',
-                hideAfter: false,
-                bgColor: '#7EC857'
-            });
-        </script>
-    <?php elseif ($this->session->flashData('msg') == 'success-hapus') : ?>
-        <script type="text/javascript">
-            Swal.fire({
-                type: 'success',
-                title: 'Sukses',
-                heading: 'Success',
-                text: "Data Berhasil dihapus.",
-                showHideTransition: 'slide',
-                icon: 'success',
-                hideAfter: false,
-                bgColor: '#7EC857'
-            });
-        </script>
-    <?php else : ?>
+        <?php elseif ($this->session->flashData('msg') == 'success') : ?>
+            <script type="text/javascript">
+                Swal.fire({
+                    type: 'success',
+                    title: 'Sukses',
+                    heading: 'Success',
+                    text: "Data Berhasil Di Tambahkan.",
+                    showHideTransition: 'slide',
+                    icon: 'success',
+                    hideAfter: false,
+                    bgColor: '#7EC857'
+                });
+            </script>
+            <?php elseif ($this->session->flashData('msg') == 'info-update') : ?>
+                <script type="text/javascript">
+                    Swal.fire({
+                        type: 'success',
+                        title: 'Sukses',
+                        heading: 'Success',
+                        text: "Data Berhasil Di Update.",
+                        showHideTransition: 'slide',
+                        icon: 'success',
+                        hideAfter: false,
+                        bgColor: '#7EC857'
+                    });
+                </script>
+                <?php elseif ($this->session->flashData('msg') == 'success-hapus') : ?>
+                    <script type="text/javascript">
+                        Swal.fire({
+                            type: 'success',
+                            title: 'Sukses',
+                            heading: 'Success',
+                            text: "Data Berhasil dihapus.",
+                            showHideTransition: 'slide',
+                            icon: 'success',
+                            hideAfter: false,
+                            bgColor: '#7EC857'
+                        });
+                    </script>
+                    <?php else : ?>
 
-    <?php endif; ?>
-    <!-- end msg -->
+                    <?php endif; ?>
+                    <!-- end msg -->
 
-</body>
+                </body>
 
-</html>
+                </html>

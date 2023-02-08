@@ -26,12 +26,13 @@ class Laporan extends CI_Controller
 
     public function bulanan()
     {
-       $data['laporan_pegawai'] = $this->M_penggajian->tampil_data();
-       $this->load->view('List.laporan.bulanan.php', $data);
-   }
+     $data['laporan_pegawai'] = $this->M_penggajian->tampil_data();
 
-   public function cek_bulan()
-   {
+     $this->load->view('List.laporan.bulanan.php', $data);
+ }
+
+ public function cek_bulan()
+ {
     $bulan = $this->input->post('bulan');
     $data['laporan_bulan']= $this->M_penggajian->tampil_bulan($bulan)->result();
     $this->load->view('Laporan_bulan.php', $data);
@@ -40,7 +41,13 @@ class Laporan extends CI_Controller
 public function print_laporan()
 {
     $kode_pegawai = $this->input->post('kode_pegawai');
-    $data['pegawai'] = $this->M_penggajian->cek_kode_pegawai($kode_pegawai)->result();
+    $bulan        = $this->input->post('bulan');
+
+    $data['pegawai'] = $this->M_penggajian->cek_kode_pegawai($kode_pegawai,$bulan)->result();
+    // echo "<pre>";
+    // print_r($data);
+    // echo "</pre>";
+    // die();
 
     $this->load->view('Laporan.php', $data);
 }

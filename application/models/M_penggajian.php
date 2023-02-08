@@ -6,7 +6,14 @@ class M_penggajian extends CI_Model
 
     function tampil_data()
     {
-        $this->db->select('*');
+        $this->db->select('
+            a.id,
+            b.kode_pegawai,
+            b.nama,
+            b.jabatan,
+            a.tanggal,
+            a.bulan
+            ');
         $this->db->from('tbl_penggajian a');
         $this->db->join('tbl_pegawai b', 'b.kode_pegawai = a.kode_pegawai');
         return $this->db->get('');
@@ -14,19 +21,35 @@ class M_penggajian extends CI_Model
 
     function cek_id($id)
     {
-        $this->db->select('*');
+        $this->db->select('
+            a.id,
+            b.nama,
+            a.kode_pegawai,
+            a.gaji_pokok,
+            a.uang_transport,
+            a.uang_makan,
+            a.uang_rajin,
+            a.lembur,
+            a.bpjs_jht,
+            a.bpjs_jkk,
+            a.bpjs_jkm,
+            a.cuti,
+            a.potongan_bpjs_jht,
+            a.potongan_bpjs_kantor,
+            a.total_gaji');
         $this->db->from('tbl_penggajian a');
         $this->db->join('tbl_pegawai b', 'b.kode_pegawai = a.kode_pegawai');
         $this->db->where('a.id', $id);
         return $this->db->get('');
     }
 
-    function cek_kode_pegawai($kode_pegawai)
+    function cek_kode_pegawai($kode_pegawai,$bulan)
     {
         $this->db->select('*');
         $this->db->from('tbl_penggajian a');
         $this->db->join('tbl_pegawai b', 'b.kode_pegawai = a.kode_pegawai');
         $this->db->where('a.kode_pegawai', $kode_pegawai);
+        $this->db->where('a.bulan',$bulan);
         return $this->db->get('');
     }
     function tampil_bulan($bulan)

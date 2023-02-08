@@ -32,7 +32,7 @@ class Penggajian extends CI_Controller
     public function edit($id)
     {
         $data['pegawai'] = $this->M_penggajian->cek_id($id);
-        $this->load->view('edit.penggajian.php', $data);
+        $this->load->view('Edit.penggajian.php', $data);
     }
     public function add()
     {
@@ -45,6 +45,7 @@ class Penggajian extends CI_Controller
         $bpjs_jht = $this->input->post('bpjs_jht');
         $bpjs_jkk = $this->input->post('bpjs_jkk');
         $bpjs_jkm = $this->input->post('bpjs_jkm');
+        $bulan    = date('m');
 
         $cuti = $this->input->post('cuti');
         $potongan_bpjs_jht = $this->input->post('potongan_bpjs_jht');
@@ -70,6 +71,7 @@ class Penggajian extends CI_Controller
             'potongan_bpjs_jht' => $potongan_bpjs_jht,
             'potongan_bpjs_kantor' => $potongan_bpjs_kantor,
             'total_gaji' => $total_gaji,
+            'bulan'     => $bulan,
             'tanggal' => $tanggal
         );
 
@@ -119,7 +121,7 @@ class Penggajian extends CI_Controller
         $where = array(
             'id' => $id
         );
-
+        
         $this->M_penggajian->update_data($where, $data, 'tbl_penggajian');
         echo $this->session->set_flashdata('msg', 'info-update');
         redirect('penggajian');

@@ -127,6 +127,7 @@
     <?php foreach ($laporan_pegawai->result_array() as $row) :
         $id = $row['id'];
         $kode_pegawai = $row['kode_pegawai'];
+        $bulan        = $row['bulan'];
         $nama = $row['nama'];
         ?>
         <div class="modal fade" id="ModalHapus<?php echo $id; ?>" tabindex="-1" role="dialog" aria-labelledby="">
@@ -139,7 +140,7 @@
                     <form class="form-horizontal" action="<?php echo base_url() . 'Laporan/print_laporan' ?>" method="post">
                         <div class="modal-body">
                             <input type="hidden" name="kode_pegawai" value="<?php echo $kode_pegawai; ?>" />
-
+                            <input type="hidden" name="bulan" value="<?php echo $bulan;?>">
                             <p>Apakah Anda yakin mau Mencetak data gaji <b><?php echo $nama; ?></b> ?</p>
 
                         </div>

@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link href="<?php echo base_url() . "assets/"; ?>img/logo.png" rel="icon">
-    <title>Form Tambah Data Pegawai</title>
+    <title>Form Edit Data Penggajian</title>
     <link href="<?php echo base_url() . "assets/"; ?>vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="<?php echo base_url() . "assets/"; ?>vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <!-- Select2 -->
@@ -54,7 +54,7 @@
                                 <div class="card-body">
                                     <form action="<?php echo base_url() . 'Penggajian/update'; ?>" method="POST">
                                         <?php foreach ($pegawai->result_array() as $row) :
-                                        ?>
+                                            ?>
                                             <div class="row">
                                                 <div class="form-group col-md-10">
                                                     <label>Nama Pegawai</label>

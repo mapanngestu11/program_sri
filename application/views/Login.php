@@ -33,25 +33,25 @@
                             <div class="col-lg-12">
                                 <div class="login-form">
                                     <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">Login</h1>
+                                     <p><?php echo $this->session->flashdata('msg');?></p>
+                                     <h1 class="h4 text-gray-900 mb-4">Login</h1>
+                                 </div>
+                                 <form action="<?php echo site_url() . 'login/auth' ?>" method="POST" class="user">
+                                    <div class="form-group">
+                                        <input type="text" name="username" class="form-control" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Username" required>
                                     </div>
-                                    <form action="<?php echo site_url() . 'login/auth' ?>" method="POST" class="user">
-                                        <div class="form-group">
-                                            <input type="text" name="username" class="form-control" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Username" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="password" name="password" class="form-control" id="exampleInputPassword" placeholder="Password" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <button type="submit" class="btn btn-primary btn-block">Login</button>
-                                        </div>
-                                        <hr>
-                                        <center>
-                                            <a href="<?php echo base_url('Dashboard_utama/') ?>" class="kembali">Kembali</a>
-                                        </center>
-                                    </form>
-                                    <div class="text-center">
+                                    <div class="form-group">
+                                        <input type="password" name="password" class="form-control" id="exampleInputPassword" placeholder="Password" required>
                                     </div>
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-primary btn-block">Login</button>
+                                    </div>
+                                    <hr>
+                                    <center>
+                                        <a href="<?php echo base_url('Dashboard_utama/') ?>" class="kembali">Kembali</a>
+                                    </center>
+                                </form>
+                                <div class="text-center">
                                 </div>
                             </div>
                         </div>
@@ -60,11 +60,12 @@
             </div>
         </div>
     </div>
-    <!-- Login Content -->
-    <script src="<?php echo base_url() . "assets/"; ?>vendor/jquery/jquery.min.js"></script>
-    <script src="<?php echo base_url() . "assets/"; ?>vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="<?php echo base_url() . "assets/"; ?>vendor/jquery-easing/jquery.easing.min.js"></script>
-    <script src="<?php echo base_url() . "assets/"; ?>js/ruang-admin.min.js"></script>
+</div>
+<!-- Login Content -->
+<script src="<?php echo base_url() . "assets/"; ?>vendor/jquery/jquery.min.js"></script>
+<script src="<?php echo base_url() . "assets/"; ?>vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="<?php echo base_url() . "assets/"; ?>vendor/jquery-easing/jquery.easing.min.js"></script>
+<script src="<?php echo base_url() . "assets/"; ?>js/ruang-admin.min.js"></script>
 </body>
 
 </html>
